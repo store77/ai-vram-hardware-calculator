@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVRAMBench - Local LLM & AI Model VRAM Calculator & Workstation Hardware Finder</title>
+    <meta name="description" content="Calculate exact VRAM requirements (Q4_K_M, Q8_0, FP16) for trending Hugging Face LLMs and find compatible 16GB/24GB GPUs, Unified Memory Mini PCs, and AI Workstations.">
+    <link rel="canonical" href="https://store77.github.io/ai-vram-hardware-calculator/">
+    <style>
+        :root { --bg: #090d16; --panel: #111827; --border: #1f2937; --text: #f9fafb; --muted: #9ca3af; --accent: #10b981; --highlight: #38bdf8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        header { background: #030712; border-bottom: 1px solid var(--border); padding: 36px 20px; text-align: center; }
+        header h1 { font-size: 2.1rem; margin-bottom: 10px; }
+        header h1 span { color: var(--accent); }
+        header p { color: var(--muted); max-width: 720px; margin: 0 auto 20px; }
+        #filterInput { width: 100%; max-width: 540px; padding: 13px 16px; border-radius: 8px; border: 1px solid var(--border); background: #090d16; color: #fff; font-size: 1rem; }
+        .container { max-width: 1120px; margin: 36px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .m-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: transform 0.15s, border-color 0.15s; }
+        .m-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .m-top { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; }
+        .m-author { color: var(--muted); }
+        .m-size { color: var(--highlight); font-weight: 700; }
+        .m-card h2 { font-size: 1.15rem; margin-bottom: 12px; color: #fff; word-break: break-word; }
+        .m-specs { display: flex; justify-content: space-between; background: #030712; padding: 10px 12px; border-radius: 8px; font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+        .m-specs strong { color: var(--text); }
+        .m-cta { font-size: 0.88rem; color: var(--accent); font-weight: 700; }
+        footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: 0.82rem; border-top: 1px solid var(--border); margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI<span>VRAM</span>Bench Hardware Matrix</h1>
+        <p>Automated VRAM Sizing (4-Bit GGUF, 8-Bit, FP16) & Workstation GPU Upgrade Finder for Trending Open-Source AI Models</p>
+        <input type="text" id="filterInput" placeholder="Search AI model (e.g. Llama, DeepSeek, Qwen, Mistral, 70B, 32B)..." onkeyup="filterModels()">
+    </header>
+    <main class="container">
+        <div class="grid" id="modelsGrid">
+            
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-8-27b-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">Qwen</span>
+                    <span class="m-size">27.8B Params</span>
+                </div>
+                <h2>Qwen3.8-27B</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>18.9 GB</strong></span>
+                    <span>8-Bit: <strong>32.8 GB</strong></span>
+                    <span>FP16: <strong>62.6 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/lightricks-ltx-2-5-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">Lightricks</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>LTX-2.5</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/abenzerps-qwen-image-2-1-uncensored-quantized-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">abenzerps</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>Qwen-Image-2.1-Uncensored-Quantized</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/deepseek-ai-deepseek-v4-1-flash-1017-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">deepseek-ai</span>
+                    <span class="m-size">763.2B Params</span>
+                </div>
+                <h2>DeepSeek-V4.1-Flash-1017</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>519.0 GB</strong></span>
+                    <span>8-Bit: <strong>900.6 GB</strong></span>
+                    <span>FP16: <strong>1717.2 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/davidau-qwen3-8-27b-turbo-fable-cold-fusion-735-882-heretic-uncensored-neo-coder-max-mtp-gguf-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">DavidAU</span>
+                    <span class="m-size">27.0B Params</span>
+                </div>
+                <h2>Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>18.4 GB</strong></span>
+                    <span>8-Bit: <strong>31.9 GB</strong></span>
+                    <span>FP16: <strong>60.8 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/black-forest-labs-flux-3-image-klein-comfy-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">black-forest-labs</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>flux-3-image-klein-comfy</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/recursivesi-flint-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">RecursiveSI</span>
+                    <span class="m-size">39.8B Params</span>
+                </div>
+                <h2>flint</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>27.1 GB</strong></span>
+                    <span>8-Bit: <strong>47.0 GB</strong></span>
+                    <span>FP16: <strong>89.5 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/xhtoken-spark-x2-6-4b-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">XHToken</span>
+                    <span class="m-size">4.1B Params</span>
+                </div>
+                <h2>Spark-X2.6-4B</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>2.8 GB</strong></span>
+                    <span>8-Bit: <strong>4.8 GB</strong></span>
+                    <span>FP16: <strong>9.2 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/openmoss-team-moss-image-sft-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">OpenMOSS-Team</span>
+                    <span class="m-size">5.1B Params</span>
+                </div>
+                <h2>MOSS-Image-SFT</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>3.5 GB</strong></span>
+                    <span>8-Bit: <strong>6.0 GB</strong></span>
+                    <span>FP16: <strong>11.5 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/nanbeige-nanbeige4-3-33b-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">Nanbeige</span>
+                    <span class="m-size">33.1B Params</span>
+                </div>
+                <h2>Nanbeige4.3-33B</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>22.5 GB</strong></span>
+                    <span>8-Bit: <strong>39.1 GB</strong></span>
+                    <span>FP16: <strong>74.5 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/minimaxai-minimax-m3-1-flash-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">MiniMaxAI</span>
+                    <span class="m-size">220.5B Params</span>
+                </div>
+                <h2>MiniMax-M3.1-Flash</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>149.9 GB</strong></span>
+                    <span>8-Bit: <strong>260.2 GB</strong></span>
+                    <span>FP16: <strong>496.1 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/ista-daslab-deepseek-v4-1-flash-1017-gsq-rco-gguf-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">ISTA-DASLab</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/internscience-sage-a1-5-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">InternScience</span>
+                    <span class="m-size">36.0B Params</span>
+                </div>
+                <h2>Sage-A1.5</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>24.5 GB</strong></span>
+                    <span>8-Bit: <strong>42.5 GB</strong></span>
+                    <span>FP16: <strong>81.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/unsloth-flint-gguf-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">unsloth</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>flint-GGUF</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/baidu-unlimited-ocr-2-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">baidu</span>
+                    <span class="m-size">3.3B Params</span>
+                </div>
+                <h2>Unlimited-OCR-2</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>2.2 GB</strong></span>
+                    <span>8-Bit: <strong>3.9 GB</strong></span>
+                    <span>FP16: <strong>7.4 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/orcarouter-deepseek-v4-1-flash-1017-abliterated-gguf-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">orcarouter</span>
+                    <span class="m-size">8.0B Params</span>
+                </div>
+                <h2>DeepSeek-V4.1-Flash-1017-abliterated-GGUF</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>5.4 GB</strong></span>
+                    <span>8-Bit: <strong>9.4 GB</strong></span>
+                    <span>FP16: <strong>18.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/liquidai-lfm3-1-7b-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">LiquidAI</span>
+                    <span class="m-size">1.7B Params</span>
+                </div>
+                <h2>LFM3-1.7B</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>1.2 GB</strong></span>
+                    <span>8-Bit: <strong>2.0 GB</strong></span>
+                    <span>FP16: <strong>3.8 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/tencent-hy-simulmt-30b-a3b-fp8-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">tencent</span>
+                    <span class="m-size">30.4B Params</span>
+                </div>
+                <h2>Hy-SimulMT-30B-A3B-FP8</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>20.7 GB</strong></span>
+                    <span>8-Bit: <strong>35.9 GB</strong></span>
+                    <span>FP16: <strong>68.4 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/huggingfacebio-carbon-x-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">HuggingFaceBio</span>
+                    <span class="m-size">14.8B Params</span>
+                </div>
+                <h2>Carbon-X</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>10.1 GB</strong></span>
+                    <span>8-Bit: <strong>17.5 GB</strong></span>
+                    <span>FP16: <strong>33.3 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        <article class="m-card">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/models/ccore-qwen3-5-4b-3d-coder-vram-requirements-gpu-workstation-guide.html" style="text-decoration: none; color: inherit;">
+                <div class="m-top">
+                    <span class="m-author">ccore</span>
+                    <span class="m-size">4.0B Params</span>
+                </div>
+                <h2>Qwen3.5-4B-3D-Coder</h2>
+                <div class="m-specs">
+                    <span>4-Bit: <strong>2.7 GB</strong></span>
+                    <span>8-Bit: <strong>4.7 GB</strong></span>
+                    <span>FP16: <strong>9.0 GB</strong></span>
+                </div>
+                <span class="m-cta">View GPU & Workstation Matches &rarr;</span>
+            </a>
+        </article>
+        
+        </div>
+    </main>
+    <footer>
+        <p>As an Amazon Associate, this site earns from qualifying purchases. Automatically updated every 24 hours via Hugging Face Hub API.</p>
+    </footer>
+    <script>
+        function filterModels() {
+            const q = document.getElementById('filterInput').value.toLowerCase();
+            document.querySelectorAll('.m-card').forEach(el => {
+                el.style.display = el.innerText.toLowerCase().includes(q) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

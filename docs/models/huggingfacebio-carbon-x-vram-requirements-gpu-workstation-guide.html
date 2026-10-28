@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon-X (14.8B) VRAM Requirements, Context Calculator & Best GPU Workstation Builds</title>
+    <meta name="description" content="Exact VRAM requirements for HuggingFaceBio/Carbon-X (14.8B): 10.1GB (4-bit Q4_K_M), 17.5GB (8-bit), and 33.3GB (FP16). Compare compatible GPUs, Mini PCs, and AI workstations.">
+    <link rel="canonical" href="https://store77.github.io/ai-vram-hardware-calculator/models/huggingfacebio-carbon-x-vram-requirements-gpu-workstation-guide.html">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much VRAM is required to run HuggingFaceBio/Carbon-X locally?", "acceptedAnswer": {"@type": "Answer", "text": "Running HuggingFaceBio/Carbon-X (14.8B parameters) requires approximately 10.1 GB of VRAM in 4-bit quantization (Q4_K_M), 17.5 GB in 8-bit (Q8_0), and 33.3 GB in full 16-bit (FP16) precision."}}, {"@type": "Question", "name": "What is the best GPU to run Carbon-X at high tokens per second?", "acceptedAnswer": {"@type": "Answer", "text": "For Carbon-X (14.8B), we recommend NVIDIA GeForce RTX 4070 Ti Super 16GB / RTX 4080 Super 16GB GDDR6X or an Apple Silicon / Ryzen AI Unified Memory workstation with at least 21 GB of memory."}}]}</script>
+    <style>
+        :root { --bg: #090d16; --panel: #111827; --border: #1f2937; --text: #f9fafb; --muted: #9ca3af; --accent: #10b981; --accent-dark: #059669; --highlight: #38bdf8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding-bottom: 60px; }
+        header { background: #030712; border-bottom: 1px solid var(--border); padding: 18px 24px; }
+        .nav { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--text); font-weight: 800; font-size: 1.25rem; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .container { max-width: 1120px; margin: 32px auto; padding: 0 20px; }
+        .hero { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 28px; }
+        .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+        .pill { background: #030712; border: 1px solid var(--border); color: var(--highlight); font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; font-weight: 600; }
+        h1 { font-size: 1.9rem; line-height: 1.25; margin-bottom: 12px; }
+        .vram-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+        .vram-box { background: #030712; border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+        .vram-box span { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 6px; }
+        .vram-box strong { font-size: 1.8rem; color: var(--accent); }
+        .calc-box { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 36px; }
+        .calc-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 16px; }
+        label { display: block; font-size: 0.88rem; color: var(--muted); margin-bottom: 6px; }
+        select { width: 100%; padding: 11px; border-radius: 8px; background: #030712; color: var(--text); border: 1px solid var(--border); font-size: 0.95rem; }
+        .calc-output { margin-top: 20px; padding: 16px; background: #030712; border-left: 4px solid var(--accent); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .section-h2 { font-size: 1.45rem; margin: 36px 0 18px; border-left: 4px solid var(--accent); padding-left: 12px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-top { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .cat { font-size: 0.76rem; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 0.5px; }
+        .badge { background: #030712; color: var(--highlight); font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; border: 1px solid #0284c7; }
+        .card h3 { font-size: 1.12rem; margin-bottom: 10px; color: #fff; }
+        .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 18px; }
+        .card-footer { margin-top: auto; }
+        .price-pill { display: block; font-size: 0.85rem; color: #e2e8f0; margin-bottom: 10px; font-weight: 600; }
+        .btn { display: block; text-align: center; background: var(--accent); color: #030712; font-weight: 800; text-decoration: none; padding: 13px 16px; border-radius: 8px; transition: background 0.15s; }
+        .btn:hover { background: var(--accent-dark); color: #fff; }
+        .rel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin-top: 16px; }
+        .rel-item { background: var(--panel); border: 1px solid var(--border); padding: 14px; border-radius: 10px; text-decoration: none; color: var(--text); display: block; }
+        .rel-item strong { display: block; font-size: 0.95rem; margin-bottom: 4px; color: #fff; }
+        .rel-item span { font-size: 0.82rem; color: var(--muted); }
+        footer { max-width: 1120px; margin: 50px auto 0; padding: 24px 20px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.82rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/" class="logo">AI<span>VRAM</span>Bench</a>
+            <a href="https://store77.github.io/ai-vram-hardware-calculator/" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">&larr; All AI Model Benchmarks</a>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <div class="pills">
+                <span class="pill">Model: HuggingFaceBio/Carbon-X</span>
+                <span class="pill">Parameters: 14.8 Billion</span>
+                <span class="pill">Task: text-generation</span>
+                <span class="pill">Verified: 2026-10-28</span>
+            </div>
+            <h1>Carbon-X (14.8B) Local VRAM Requirements & Workstation Hardware Guide</h1>
+            <p style="color: var(--muted);">Complete memory footprint breakdown for running <strong>HuggingFaceBio/Carbon-X</strong> locally via Ollama, vLLM, LM Studio, or llama.cpp, paired with compatible high-bandwidth GPUs and AI workstations.</p>
+            <div class="vram-matrix">
+                <div class="vram-box">
+                    <span>4-Bit Quantization (Q4_K_M / AWQ)</span>
+                    <strong>10.1 GB VRAM</strong>
+                </div>
+                <div class="vram-box">
+                    <span>8-Bit Quantization (Q8_0 / EXL2)</span>
+                    <strong>17.5 GB VRAM</strong>
+                </div>
+                <div class="vram-box">
+                    <span>Full Half-Precision (FP16 / BF16)</span>
+                    <strong>33.3 GB VRAM</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="calc-box">
+            <h2 style="font-size: 1.25rem;">Interactive Carbon-X Context Window & KV-Cache VRAM Calculator</h2>
+            <div class="calc-controls">
+                <div>
+                    <label for="quantSelect">Select Quantization Precision</label>
+                    <select id="quantSelect" onchange="updateVramCalc()">
+                        <option value="10.1">4-Bit (Q4_K_M / GGUF) - Recommended</option>
+                        <option value="17.5">8-Bit (Q8_0) - Near-Lossless</option>
+                        <option value="33.3">16-Bit (FP16 / BF16) - Full Weights</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ctxSelect">Target Context Length (Tokens)</label>
+                    <select id="ctxSelect" onchange="updateVramCalc()">
+                        <option value="1.0">4,096 Tokens (Standard Chat)</option>
+                        <option value="2.2">16,384 Tokens (RAG / Coding)</option>
+                        <option value="4.5">32,768 Tokens (Long Document Analysis)</option>
+                        <option value="9.0">65,536+ Tokens (Full Repo Context)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calc-output">
+                <div>
+                    <span style="color: var(--muted); font-size: 0.85rem;">Total Estimated Memory (Weights + KV Cache):</span>
+                    <div id="totalVramText" style="font-size: 1.4rem; font-weight: 800; color: var(--accent);">11.1 GB VRAM Required</div>
+                </div>
+                <a id="dynamicAmzBtn" href="https://www.amazon.com/s?k=NVIDIA+GeForce+RTX+4070+Ti+Super+16GB+graphics+card&rh=p_36%3A70000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn" style="padding: 10px 18px;">View Matching Hardware on Amazon &rarr;</a>
+            </div>
+        </section>
+
+        <h2 class="section-h2">Compatible High-Performance Hardware Builds ($200+ Tier) for Carbon-X</h2>
+        <div class="grid">
+            
+        <div class="card">
+            <div class="card-top">
+                <span class="cat">High-Bandwidth 16GB-20GB GPU ($749 - $1,099)</span>
+                <span class="badge">Optimal 14B-32B AI Accelerator</span>
+            </div>
+            <h3>NVIDIA GeForce RTX 4070 Ti Super 16GB / RTX 4080 Super 16GB GDDR6X</h3>
+            <p>High memory bandwidth (up to 736 GB/s) required to load 14.8B weights into VRAM without slow PCIe system RAM offloading.</p>
+            <div class="card-footer">
+                <span class="price-pill">Est. Price: $749 – $1,099</span>
+                <a href="https://www.amazon.com/s?k=NVIDIA+GeForce+RTX+4070+Ti+Super+16GB+graphics+card&rh=p_36%3A70000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn">View RTX 4070 Ti / 4080 Super ($700+) on Amazon &rarr;</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-top">
+                <span class="cat">Unified Memory Local AI Mini Workstation ($699 - $1,599)</span>
+                <span class="badge">Fits 33.3GB FP16 / Large Context</span>
+            </div>
+            <h3>Apple Mac Mini M4 Pro / Ryzen AI 9 HX 370 Mini PC (32GB - 64GB Unified RAM)</h3>
+            <p>Run large quantized models silently at under 65W power draw using high-capacity unified memory architecture.</p>
+            <div class="card-footer">
+                <span class="price-pill">Est. Price: $699 – $1,599</span>
+                <a href="https://www.amazon.com/s?k=Apple+Mac+Mini+M4+Pro+OR+Ryzen+AI+9+HX+370+64GB+Mini+PC&rh=p_36%3A60000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn">Explore AI Mini Workstations ($600+) on Amazon &rarr;</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-top">
+                <span class="cat">Turnkey Prebuilt AI Desktop Workstation ($1,499 - $2,999)</span>
+                <span class="badge">Plug-and-Play CUDA System</span>
+            </div>
+            <h3>Liquid-Cooled RTX 4080 Super / RTX 4090 AI Workstation Desktop PC (64GB DDR5)</h3>
+            <p>Pre-configured high-airflow desktop system ready for Ollama, vLLM, LM Studio, and PyTorch out of the box.</p>
+            <div class="card-footer">
+                <span class="price-pill">Est. Price: $1,499 – $2,999</span>
+                <a href="https://www.amazon.com/s?k=RTX+4080+Super+64GB+DDR5+gaming+workstation+desktop+PC&rh=p_36%3A140000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn">See Prebuilt AI Desktops ($1,400+) on Amazon &rarr;</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-top">
+                <span class="cat">CPU Layer-Offload Memory & Gen4 NVMe Kit ($240 - $420)</span>
+                <span class="badge">High-Speed llama.cpp Offloading</span>
+            </div>
+            <h3>96GB / 128GB DDR5 6000MHz CL30 Dual-Channel RAM + 4TB NVMe M.2 SSD</h3>
+            <p>Essential for splitting 14.8B GGUF model layers across system RAM and loading multi-gigabyte safetensors weights instantly.</p>
+            <div class="card-footer">
+                <span class="price-pill">Est. Price: $240 – $420</span>
+                <a href="https://www.amazon.com/s?k=96GB+2x48GB+DDR5+6000MHz+desktop+memory+kit&rh=p_36%3A21000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn">Check 96GB/128GB DDR5 Kits ($210+) on Amazon &rarr;</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-top">
+                <span class="cat">ATX 3.1 PCIe 5.0 Multi-GPU Power Supply ($215 - $340)</span>
+                <span class="badge">Native 12V-2x6 600W Connector</span>
+            </div>
+            <h3>1200W / 1300W 80+ Platinum ATX 3.1 Full-Modular Workstation Power Supply</h3>
+            <p>Handles transient GPU power spikes during full-load LLM token generation and dual-GPU workstation builds.</p>
+            <div class="card-footer">
+                <span class="price-pill">Est. Price: $215 – $340</span>
+                <a href="https://www.amazon.com/s?k=1200W+80+Plus+Platinum+ATX+3.1+PCIe+5.0+power+supply&rh=p_36%3A20000-&tag=everythi00099-20" target="_blank" rel="nofollow sponsored noopener" class="btn">View 1200W+ Platinum PSUs ($200+) on Amazon &rarr;</a>
+            </div>
+        </div>
+        
+        </div>
+
+        <h2 class="section-h2">Compare Other Trending AI Model Hardware Specs</h2>
+        <div class="rel-grid">
+            
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/recursivesi-flint-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>flint (39.8B)</strong>
+            <span>Q4 VRAM: 27.1 GB &bull; FP16: 89.5 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/deepseek-ai-deepseek-v4-1-flash-1017-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>DeepSeek-V4.1-Flash-1017 (763.2B)</strong>
+            <span>Q4 VRAM: 519.0 GB &bull; FP16: 1717.2 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/nanbeige-nanbeige4-3-33b-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>Nanbeige4.3-33B (33.1B)</strong>
+            <span>Q4 VRAM: 22.5 GB &bull; FP16: 74.5 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/xhtoken-spark-x2-6-4b-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>Spark-X2.6-4B (4.1B)</strong>
+            <span>Q4 VRAM: 2.8 GB &bull; FP16: 9.2 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/black-forest-labs-flux-3-image-klein-comfy-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>flux-3-image-klein-comfy (8.0B)</strong>
+            <span>Q4 VRAM: 5.4 GB &bull; FP16: 18.0 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/minimaxai-minimax-m3-1-flash-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>MiniMax-M3.1-Flash (220.5B)</strong>
+            <span>Q4 VRAM: 149.9 GB &bull; FP16: 496.1 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/lightricks-ltx-2-5-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>LTX-2.5 (8.0B)</strong>
+            <span>Q4 VRAM: 5.4 GB &bull; FP16: 18.0 GB &rarr;</span>
+        </a>
+        
+        <a href="https://store77.github.io/ai-vram-hardware-calculator/models/ista-daslab-deepseek-v4-1-flash-1017-gsq-rco-gguf-vram-requirements-gpu-workstation-guide.html" class="rel-item">
+            <strong>DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF (8.0B)</strong>
+            <span>Q4 VRAM: 5.4 GB &bull; FP16: 18.0 GB &rarr;</span>
+        </a>
+        
+        </div>
+    </main>
+    <footer>
+        <p>As an Amazon Associate, this platform earns from qualifying purchases. All hardware links automatically filter for workstation-grade components ($200+). Data synced with Hugging Face Hub API on 2026-10-28.</p>
+    </footer>
+    <script>
+        function updateVramCalc() {
+            const base = parseFloat(document.getElementById('quantSelect').value);
+            const ctxOverhead = parseFloat(document.getElementById('ctxSelect').value) * (14.8 / 8.0);
+            const total = (base + ctxOverhead).toFixed(1);
+            document.getElementById('totalVramText').innerText = total + ' GB VRAM Required';
+        }
+    </script>
+</body>
+</html>
