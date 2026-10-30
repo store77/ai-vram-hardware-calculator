@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -31,8 +31,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/openai-gpt-oss-20b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/abenzerps-qwen-image-2-1-uncensored-quantized-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/openai-community-gpt2-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,6 +67,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen2-5-7b-instruct-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/ista-daslab-qwen3-8-27b-gsq-rco-gguf-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -67,8 +85,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-8b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/black-forest-labs-flux-3-image-klein-comfy-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-0-6b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/deepseek-ai-deepseek-v3-2-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-embedding-0-6b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/mistralai-mistral-large-4-1t-a52b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -97,14 +145,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-4b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen2-5-0-5b-instruct-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/nanbeige-nanbeige4-3-33b-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/ornith-ai-ornith-1-5-9b-gguf-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/comfy-org-moss-image-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/qwen-qwen3-14b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -223,6 +295,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/diffuspace-clover-35b-a3b-preview-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/unsloth-nvidia-nemotron-3-5-bolt-e4b-gguf-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -235,14 +313,56 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/liquidai-lfm3-audio-2b-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/liquidai-lfm3-1-7b-gguf-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/liconstudio-minimax-h3-vbvr-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/hi3d-official-hi3dv1-0-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/atomicchat-lfm3-1-7b-uncensored-gguf-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/efficient-large-model-open-h3-regenerate-2k-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store77.github.io/ai-vram-hardware-calculator/models/oliviarossi-minimax-h3-singularity-x-10eros-max-prism-vram-requirements-gpu-workstation-guide.html</loc>
     <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/tencent-hy-nomas-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store77.github.io/ai-vram-hardware-calculator/models/maya-research-maya2-native-vram-requirements-gpu-workstation-guide.html</loc>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
